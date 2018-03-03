@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
         window = UIWindow(frame: UIScreen.main.bounds)
         let tbc = UITabBarController()
         let searchVC = SearchViewController()
@@ -25,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         searchVC.tabBarItem = UITabBarItem(title: "Search", image: nil, tag: 0)
         favoritesVC.tabBarItem = UITabBarItem(title: "Favorites", image: nil, tag: 1)
         window?.rootViewController = tbc
+        PersistantManager.manager.loadFavorites()
+  
         window?.makeKeyAndVisible()
         return true
     }
